@@ -1,31 +1,15 @@
 "use client";
-
-import "../styles/globals.css";
-import { SessionProvider, useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
-import NextButton from "@/components/Button";
+import NextButton from "@/globalElements/Button";
 import dynamic from "next/dynamic"; // Dinamik yükleme için import
 
-// ThemeToggle'ı dinamik olarak yüklüyoruz, SSR devre dışı bırakıldı
-const ThemeToggle = dynamic(() => import("@/components/ThemeToggle"), {
+const ThemeToggle = dynamic(() => import("@/globalElements/ThemeToggle"), {
   ssr: false,
 });
 
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        <SessionProvider>
-          <Header />
-          <main className="min-h-screen">{children}</main>
-        </SessionProvider>
-      </body>
-    </html>
-  );
-}
-
-function Header() {
+export default function Header() {
   const { data: session } = useSession();
 
   return (

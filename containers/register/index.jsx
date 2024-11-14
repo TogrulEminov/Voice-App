@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import NextButton from "@/components/Button";
+import NextButton from "@/globalElements/Button";
 
 export default function Register() {
   const [email, setEmail] = useState("");

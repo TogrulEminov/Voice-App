@@ -2,18 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
-import AudioRecorders from "@/components/AudioRecorder";
+import AudioRecorders from "@/globalElements/AudioRecorder";
 
 // Bileşenlerin sadece istemci tarafında çalışacak şekilde düzenlenmesi
-const AudioRecorder = dynamic(() => import("@/components/AudioRecorder"), {
+const AudioRecorder = dynamic(() => import("@/globalElements/AudioRecorder"), {
   ssr: false,
 });
 const ConversationHistory = dynamic(
-  () => import("@/components/ConversationHistory"),
+  () => import("@/globalElements/ConversationHistory"),
   { ssr: false }
 );
 
-const DashboardPage = () => {
+const DashboardPageContainer = () => {
   const [feedback, setFeedback] = useState("");
   const [transcribedText, setTranscribedText] = useState("");
   const [refresh, setRefresh] = useState(false);
@@ -112,4 +112,6 @@ const DashboardPage = () => {
 };
 
 // Bileşeni dinamik olarak yükleyip yalnızca istemci tarafında render edilmesini sağlıyoruz
-export default dynamic(() => Promise.resolve(DashboardPage), { ssr: false });
+export default dynamic(() => Promise.resolve(DashboardPageContainer), {
+  ssr: false,
+});

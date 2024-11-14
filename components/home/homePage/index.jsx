@@ -1,7 +1,7 @@
 import Link from "next/link";
-import NextButton from "@/components/Button";
+import NextButton from "@/globalElements/Button";
 
-export default function Home() {
+export default function HomeDashboard() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
       <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-center hover:text-indigo-500 transition-colors duration-200">
